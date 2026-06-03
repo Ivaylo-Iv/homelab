@@ -1,0 +1,32 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "enabledManagers": ["kubernetes", "helmv3", "helm-values", "flux"],
+
+  "kubernetes": {
+    "managerFilePatterns": ["/\\.ya?ml$/"]
+  },
+
+  "helmv3": {
+    "managerFilePatterns": ["/\\.ya?ml$/"]
+  },
+
+  "helm-values": {
+    "managerFilePatterns": ["/\\.ya?ml$/"]
+  },
+
+  "flux": {
+    "managerFilePatterns": ["/\\.ya?ml$/"]
+  },
+
+  "packageRules": [
+    {
+      "matchManagers": ["flux", "helmv3"],
+      "matchDatasources": ["helm"],
+      "registryAliases": {
+        "bitnami": "https://charts.bitnami.com/bitnami",
+        "repo": "https://charts.bitnami.com/bitnami"
+      }
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - s3-minio-d
+  - controller-soc-ai
+  - reporting-soc-ai
+  - logger-soc-ai
+  - redis
+  - mongodb

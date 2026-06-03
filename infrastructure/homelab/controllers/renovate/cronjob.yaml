@@ -1,0 +1,25 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: renovate
+  namespace: renovate
+spec:
+  schedule: "* * * * *"
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: renovate
+              image: renovate/renovate:latest
+              args:
+                - ivaylo-iv/homelab
+
+              envFrom:
+                - secretRef:
+                    name: renovate-token
+                - configMapRef:
+                    name: renovate-configmap
+
+          restartPolicy: Never
