@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inbrowser-beatmaker
+  namespace: inbrowser-beatmaker
+  labels:
+    app: inbrowser-beatmaker
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: inbrowser-beatmaker 
+  template:
+    metadata:
+      labels:
+        app: inbrowser-beatmaker
+    spec:
+      containers:
+      - name: inbrowser-beatmaker
+        image: ghcr.io/ivaylo-iv/inbrowser-beatmaker:1a950564cd829650d6de43066313b89c6d69a9f8
+        ports:
+        - containerPort: 80
