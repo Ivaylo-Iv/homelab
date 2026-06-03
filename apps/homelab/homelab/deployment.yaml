@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: homelab
+  namespace: homelab
+  labels:
+    app: homelab
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: homelab 
+  template:
+    metadata:
+      labels:
+        app: homelab
+    spec:
+      containers:
+      - name: homelab
+        image: ghcr.io/ivaylo-iv/static-site-generator:a9cd458d2542230a8e1b8a3f80da08c37667c097
+        ports:
+        - containerPort: 80

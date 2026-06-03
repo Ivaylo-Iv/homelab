@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: homelab
+  namespace: homelab
+  labels:
+    app: homelab
+spec:
+  type: ClusterIP
+  selector:
+    app: homelab
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80            
+      targetPort: 80      
