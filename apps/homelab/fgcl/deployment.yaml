@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fgcl
+  namespace: fgcl
+  labels:
+    app: fgcl
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fgcl
+  template:
+    metadata:
+      labels:
+        app: fgcl
+    spec:
+      containers:
+        - name: fgcl
+          image: ghcr.io/ivaylo-iv/lottery-draw:f2fb9684ee6a5bf409d67de7ddae91148f790068
+          ports:
+            - containerPort: 3000

@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fgcl
+  namespace: fgcl
+  labels:
+    app: fgcl
+spec:
+  type: ClusterIP
+  selector:
+    app: fgcl
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80            
+      targetPort: 3000      
