@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
         - name: fgcl
-          image: ghcr.io/ivaylo-iv/lottery-draw:latest
+          image: ghcr.io/ivaylo-iv/lottery-draw:cec6e83cb7d9ec63642bbf9b26cd2697bf8d3ab9
           ports:
             - containerPort: 3000
